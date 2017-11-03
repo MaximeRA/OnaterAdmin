@@ -1,0 +1,41 @@
+<div class="row form-group">
+  <div class="col-md-9">
+    <h4>Liste des marques</h4>
+  </div>
+  <div class="col-md-3 text-right">
+    <button class="btn btn-success" routerLink="/marque/add">Ajouter une marque
+    </button>
+  </div>
+</div>
+<div class="table-responsive">
+  <table class="table table-bordered">
+    <tr class="default">
+      <th rowspan="2" class="col-md-1 text-center" style="vertical-align: middle">ID#
+      </th>
+      <th rowspan="2" class="col-md-2 text-center" style="vertical-align: middle">Nom
+      </th>
+      <th rowspan="2" class="col-md-5 text-center" style="vertical-align: middle">Description
+      </th>
+      <th colspan="3" class="text-center">Actions</th>
+    </tr>
+    <tr class="default">
+      <th class="text-center">View</th>
+      <th class="text-center">Update</th>
+      <th class="text-center">Delete</th>
+    </tr>
+    <tr *ngFor="let marque of marques">
+      <td>{{marque.idMarque}}</td>
+      <td>{{marque.nomMarque}}</td>
+      <td>{{marque.premPage}}</td>
+      <td class="text-center">
+        <button type="button" data-toggle="tooltip" data-placement="top" class="btn btn-default btn-block btn-xs" (click)="viewDetail(marque.idMarque)"><i class="fa fa-eye" aria-hidden="true"></i></button>
+      </td>
+      <td class="text-center">
+        <button type="button" class="btn btn-block btn-default btn-xs" (click)="update(marque.idMarque)"><i class="fa fa-edit" aria-hidden="true"></i></button>
+      </td>
+      <td class="text-center">
+        <button type="button" (click)="remove(marque.idMarque)" class="btn btn-danger btn-block btn-xs"><i class="fa fa-close" aria-hidden="true"></i></button>
+      </td>
+    </tr>
+  </table>
+</div>

@@ -1,0 +1,174 @@
+<div class="col-md-12" *ngIf="marque">
+  <div class="panel panel-default">
+    <div class="row" style="margin: 0">
+      <div class="col-md-12 text-center form-header">
+        <h4>Modifications de {{ marque.nomMarque}} ID:{{ marque.idMarque }} </h4>
+      </div>
+    </div>
+    <form [formGroup]="marqueUpdateForm"
+    (ngSubmit)="update()"
+    novalidate>
+    <div class="panel-body">
+
+      <div class="form-group">
+        <label for="idMarque">ID</label>
+        <input readonly id="idMarque"
+        class="form-control"
+        formControlName="idMarque">
+      </div>
+
+      <div class="form-group">
+        <label for="nomMarque">Nom</label>
+        <input id="nomMarque"
+        class="form-control"
+        formControlName="nomMarque">
+      </div>
+
+      <div>
+        <label for="desMarque">Description</label>
+        <text-editor id="desMarque" formControlName="desMarque" [(ngModel)]="marque.desMarque"> </text-editor>
+      </div>
+
+      <div class="form-group">
+        <label for="nomMarqueAmazon">Nom Marque Amazon</label>
+        <input id="nomMarqueAmazon"
+        class="form-control"
+        value='marque.nomMarqueAmazon'
+        formControlName="nomMarqueAmazon">
+      </div>
+
+      <div>
+        <label for="premPage">PremPage </label>
+        <input id="premPage"
+        type="checkbox"
+        value="marque.premPage"
+        formControlName="premPage">
+      </div>
+
+      <div>
+        <label for="afficher">afficher </label>
+        <input id="afficher"
+        type="checkbox"
+        value="marque.afficher"
+        formControlName="afficher">
+      </div>
+
+      <div>
+        <label for="afficherIndex">afficherIndex </label>
+        <input id="afficherIndex"
+        type="checkbox"
+        value="marque.afficherIndex"
+        formControlName="afficherIndex">
+      </div>
+
+      <div>
+        <label for="afficherPromotion">afficher </label>
+        <input id="afficherPromotion"
+        type="checkbox"
+        value="marque.afficherPromotion"
+        formControlName="afficherPromotion">
+      </div>
+
+      <div>
+        <label for="desCourt">desCourt</label>
+        <text-editor id="desCourt" formControlName="desCourt" [(ngModel)]="marque.desCourt"> </text-editor>
+      </div>
+
+      <div class="form-group">
+        <label for="nbSemReappro">Nombre de semaines avant réapprovionnement</label>
+        <input id="nbSemReappro"
+        type="number" min="0" max="999"
+        class="form-control"
+        value="marque.nbSemReappro"
+        formControlName="nbSemReappro">
+      </div>
+
+      <div class="form-group">
+        <label for="nbJourReappro">Nombre de jours avant réapprovionnement</label>
+        <input id="nbJourReappro"
+        type="number" min="0" max="999"
+        class="form-control"
+        value="marque.nbJourReappro"
+        formControlName="nbJourReappro">
+      </div>
+
+      <div class="form-group">
+        <label for="couleurMarque">Couleur</label>
+        <input [(colorPicker)]="color" [style.background]="color" [value]="color"/>
+      </div>
+
+      <div class="form-group">
+        <label for="CondComm">CondComm</label>
+        <textarea id="condComm"
+        rows="9"
+        class="form-control"
+        formControlName="condComm"></textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="emailFicheTechnique">Email Technique</label>
+        <input id="emailFicheTechnique"
+        class="form-control"
+        value='marque.emailFicheTechnique'
+        formControlName="emailFicheTechnique">
+      </div>
+
+      <div class="form-group">
+        <label for="urlPubHaut">Url Pub haut de page</label>
+        <input id="urlPubHaut"
+        class="form-control"
+        value='marque.urlPubHaut'
+        formControlName="urlPubHaut">
+      </div>
+
+      <div>
+        <label for="desPromos">desPromos</label>
+        <text-editor id="desPromos" formControlName="desPromos" [(ngModel)]="marque.desPromos"> </text-editor>
+      </div>
+
+      <div>
+        <label for="triProdVendu">triProdVendu </label>
+        <input id="triProdVendu"
+        type="checkbox"
+        value="marque.triProdVendu"
+        formControlName="triProdVendu">
+      </div>
+
+      <div>
+        <label for="triProdIndispo">triProdVendu </label>
+        <input id="triProdIndispo"
+        type="checkbox"
+        value="marque.triProdIndispo"
+        formControlName="triProdIndispo">
+      </div>
+
+      <div class="form-group">
+        <label for="phraseHaut">Phrase en haut de page</label>
+        <input id="phraseHaut"
+        class="form-control"
+        value='marque.phraseHaut'
+        formControlName="phraseHaut">
+      </div>
+
+      <label for="ts">Date TS</label>
+      <input
+        [(ngModel)]='marque.ts'
+        formControlName="ts"
+        ngui-datetime-picker
+        [date-format]="date4TimezoneFormat"/>
+
+
+      <label for="prixMin"> File Upload </label>
+      <file-uploader formControlName="prixMin"
+        [maxSizeInKb]="500" [allowMultiple]="false" [fileType]="'application/*'"
+        (onSelection)="fileuploaderFileChange($event)"  [required]="false" ngDefaultControl >
+      </file-uploader><br/>
+
+    </div>
+    <div class="form-group">
+      <button class="btn btn-success" type="submit">Update Marque</button>
+    <button type="button" class="btn btn-default" (click)="goBack()">Cancel</button>
+  </div>
+</form>
+</div>
+</div>

@@ -1,0 +1,25 @@
+<div class="col-md-12" *ngIf="marque">
+  <div class="panel panel-default">
+    <div class="col-md-12 text-center form-header">
+      <h4>Détails de {{ marque.nomMarque}} ID:{{ marque.idMarque }} </h4>
+    </div>
+    <div class="panel-heading">
+      <div>
+        <button type="button" class="btn btn-default" (click)="goBack()">Back</button>
+      </div>
+    </div>
+
+    <div class="panel-body">
+      <form name="UpdateUserForm">
+        <div class="form-group">
+          <label>ID</label>
+          <input readonly [(ngModel)]="marque.idMarque" name="idMarque" type="text" class="form-control">
+        </div>
+        <div class="form-group">
+          <label>Nom</label>
+          <input readonly [(ngModel)]="marque.nomMarque" name="nomMarque" type="text" class="form-control">
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,133 @@
+<div class="col-md-12" *ngIf="user">
+  <div class="panel panel-default">
+    <div class="row" style="margin: 0">
+      <div class="col-md-12 text-center form-header">
+        <h4>Création d'un nouveau Client </h4>
+      </div>
+    </div>
+    <div class="panel-body">
+      <form [formGroup]="userAddForm"
+            (ngSubmit)="add()"
+            novalidate>
+        <div class="form-group">
+          <label for="prenom">Prenom</label>
+          <input id="prenom"
+                 value="{{user.prenom}}"
+                 class="form-control"
+                 formControlName="prenom">
+        </div>
+
+        <div class="form-group">
+          <label for="nom">Nom</label>
+          <input id="nom"
+                 class="form-control"
+                 value="{{user.nom}}"
+                 formControlName="nom">
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input id="email"
+                 type="email"
+                 class="form-control"
+                 formControlName="email">
+        </div>
+
+        <div class="form-group">
+          <label for="civilite">Civilité :</label>
+          <input type="radio" formControlName="civilite" name="civilite" value="M.">M.
+          <input type="radio" formControlName="civilite" name="civilite" value="Mlle">Mlle
+          <input type="radio" formControlName="civilite" name="civilite" value="Mme">Mme
+
+        </div>
+
+        <div class="form-group">
+          <label for="pass">Mdp</label>
+          <input id="pass"
+                 type="pass"
+                 class="form-control"
+                 formControlName="pass">
+        </div>
+
+        <label for="dateInscription">Date d'inscription</label>
+        <input
+          [(ngModel)]='user.dateInscription'
+          formControlName="dateInscription"
+          ngui-datetime-picker
+          [date-format]="date4TimezoneFormat"/>
+
+          <label for="dateConnexion">Date de dernière Connexion</label>
+          <input
+            [(ngModel)]='user.dateConnexion'
+            formControlName="dateConnexion"
+            ngui-datetime-picker
+            [date-format]="date4TimezoneFormat"/>
+
+        <div>
+        <label for="newsletterAvoir">newsletterAvoir ? </label>
+        <input id="newsletterAvoir"
+                 type="checkbox"
+                 formControlName="newsletterAvoir">
+        </div>
+
+        <div>
+        <label for="newsletterFidelite">newsletterFidelite ? </label>
+        <input id="newsletterFidelite"
+                 type="checkbox"
+                 formControlName="newsletterFidelite">
+        </div>
+
+
+        <div>
+        <label for="envoieFidelite">fidelite ? </label>
+        <input id="envoieFidelite"
+                 type="checkbox"
+                 formControlName="envoieFidelite">
+        </div>
+
+
+        <div>
+        <label for="actifClient">actifClient ? </label>
+        <input id="actifClient"
+                 type="checkbox"
+                 formControlName="actifClient">
+        </div>
+
+        <div>
+        <label for="envoieEnquete">Veux tu une enquete ? </label>
+        <input id="envoieEnquete"
+                 type="checkbox"
+                 formControlName="envoieEnquete">
+        </div>
+
+        <div class="form-group">
+          <label for="nbCommande">Nombre de commandes</label>
+          <input id="nbCommande"
+                 type="number" min="0" max="999"
+                 class="form-control"
+                 formControlName="nbCommande">
+        </div>
+
+        <div>
+        <label for="envoieRappelTreflesX2">Rapel trefle ? </label>
+        <input id="envoieRappelTreflesX2"
+                 type="checkbox"
+                 formControlName="envoieRappelTreflesX2">
+        </div>
+
+        <div>
+        <label for="envoieRappelWelcome">Rapel ? </label>
+        <input id="envoieRappelWelcome"
+                 type="checkbox"
+                 formControlName="envoieRappelWelcome">
+        </div>
+
+        <div>
+          <button class="btn btn-success"
+                  [disabled]="!userAddForm.valid">Add User</button>
+          <button type="button" class="btn btn-default" (click)="goBack()">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
