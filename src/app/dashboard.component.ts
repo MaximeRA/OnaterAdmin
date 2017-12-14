@@ -16,8 +16,7 @@ export class DashboardComponent implements OnInit{
 
 
   ngOnInit():void{
-    this.userService.getUsers()
-      .then(response => this.totalUsers = response.length);
+
   }
 
 }

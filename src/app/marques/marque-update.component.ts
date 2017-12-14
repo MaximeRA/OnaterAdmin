@@ -6,6 +6,7 @@ import {ActivatedRoute, Params, Router} from '@angular/router';
 import {MarqueService} from "./marque.service";
 import {Location} from '@angular/common';
 import {FormGroup, FormBuilder, Validators} from '@angular/forms';
+import { FancyImageUploaderOptions, UploadedFile } from 'ng2-fancy-image-uploader';
 
 
 @Component({
@@ -17,14 +18,14 @@ import {FormGroup, FormBuilder, Validators} from '@angular/forms';
 export class MarqueUpdateComponent implements OnInit {
   marqueUpdateForm: FormGroup;
   marque: Marque;
-  fileuploaderFileChange(files: FileList){
-  }
+  private color: string = "#127bdc";
+
 
   constructor(private marqueService: MarqueService,
-    private router: Router,
-    private route: ActivatedRoute,
-    private location: Location,
-    private formBuilder: FormBuilder) {
+              private router: Router,
+              private route: ActivatedRoute,
+              private location: Location,
+              private formBuilder: FormBuilder) {
     };
 
     ngOnInit(): void {
@@ -33,7 +34,12 @@ export class MarqueUpdateComponent implements OnInit {
       .subscribe(marque => {
         this.marque = marque;
         this.buildForm();
+      //  this.options.uploadUrl=`http://localhost:8000/api/upload/marque/`+this.marque.idMarque;
       });
+    }
+
+    onUpload(file: UploadedFile) {
+      console.log(file.response);
     }
 
     buildForm(): void {
@@ -59,9 +65,13 @@ export class MarqueUpdateComponent implements OnInit {
         triProdIndispo: [this.marque.triProdIndispo, Validators.required],
         phraseHaut: [this.marque.phraseHaut, Validators.required],
         ts: [this.marque.ts, Validators.required],
-        prixMin: [this.marque.prixMin, Validators.required]
+        prixMin: [this.marque.prixMin, Validators.required],
+        margin: [this.marque.margin],
+        ownBrand: [this.marque.ownBrand],
+        nbRefs: [this.marque.nbRefs],
       });
     }
+
 
     update(): void {
       let marque = this.marqueUpdateForm.value as Marque;

@@ -11,7 +11,7 @@
       novalidate>
 
       <div class="form-group">
-        <label for="nomMarque">Nom</label>
+        <label for="nomMarque">Nom de la marque</label>
         <input id="nomMarque"
         value="{{marque.nomMarque}}"
         class="form-control"
@@ -31,7 +31,7 @@
       </div>
 
       <div>
-        <label for="premPage">PremPage </label>
+        <label for="premPage">PremPage ? </label>
         <input id="premPage"
         type="checkbox"
         formControlName="premPage">
@@ -52,18 +52,16 @@
       </div>
 
       <div>
-        <label for="afficherPromotion"> Afficher Promo ? </label>
+        <label for="afficherPromotion"> Afficher page promotion ? </label>
         <input id="afficherPromotion"
         type="checkbox"
         formControlName="afficherPromotion">
       </div>
 
-
       <div>
-        <label for="desCourt">desCourt</label>
+        <label for="desCourt">Description Court</label>
         <text-editor id="desCourt" formControlName="desCourt" [(ngModel)]="marque.desCourt"> </text-editor>
       </div>
-
 
       <div class="form-group">
         <label for="nbSemReappro">Nombre de semaines avant réapprovionnement</label>
@@ -72,7 +70,6 @@
         class="form-control"
         formControlName="nbSemReappro">
       </div>
-
 
       <div class="form-group">
         <label for="nbJourReappro">Nombre de jours avant réapprovionnement</label>
@@ -84,14 +81,15 @@
 
       <div class="form-group">
         <label for="couleurMarque">Couleur de la marque</label>
-        <input [(colorPicker)]="color" [style.background]="color" [value]="color"/>
+        <input type="color" value="#fad345" name="couleurMarque">
       </div>
 
       <div class="form-group">
-        <label for="CondComm">CondComm</label>
-        <input id="condComm"
+        <label for="condComm"> Condition commerciale </label>
+        <textarea id="condComm"
+        rows="9"
         class="form-control"
-        formControlName="condComm">
+        formControlName="condComm"></textarea>
       </div>
 
 
@@ -120,7 +118,7 @@
       </div>
 
       <div>
-        <label for="desPromos">desPromos</label>
+        <label for="desPromos">Description Promos</label>
         <text-editor id="desPromos" formControlName="desPromos" [(ngModel)]="marque.desPromos"> </text-editor>
       </div>
 
@@ -154,17 +152,41 @@
         ngui-datetime-picker
         [date-format]="date4TimezoneFormat"/>
 
+        <div class="form-group">
+          <label for="prixMin">Prix Minimum</label>
+          <input id="prixMin"
+          class="form-control"
+          formControlName="prixMin">
+        </div>
 
-      <label for="prixMin"> File Upload </label>
-      <file-uploader formControlName="prixMin"
-        [maxSizeInKb]="500" [allowMultiple]="false" [fileType]="'application/*'"
-        (onSelection)="fileuploaderFileChange($event)"  [required]="false" ngDefaultControl >
-      </file-uploader><br/>
+        <div class="form-group">
+          <label for="margin">Margin</label>
+          <input id="margin"
+          type="number" min="-10000" max="100000" step="1"
+          class="form-control"
+          formControlName="margin">
+        </div>
+
+        <div>
+          <label for="ownBrand"> OwnBrand ? </label>
+          <input id="ownBrand"
+          type="checkbox"
+          formControlName="ownBrand">
+        </div>
+
+
+        <div class="form-group">
+          <label for="nbRefs">Nombre de Références</label>
+          <input id="nbRefs"
+          type="number" min="-10000" max="100000" step="1"
+          class="form-control"
+          formControlName="nbRefs">
+        </div>
 
       <div>
         <button class="btn btn-success"
-        [disabled]="!marqueAddForm.valid">Add Marque</button>
-        <button type="button" class="btn btn-default" (click)="goBack()">Cancel</button>
+        [disabled]="!marqueAddForm.valid">Ajouter Marque</button>
+        <button type="button" class="btn btn-default" (click)="goBack()">Annuler</button>
       </div>
     </form>
   </div>

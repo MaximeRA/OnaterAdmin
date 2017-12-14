@@ -2,22 +2,26 @@ import {Injectable} from '@angular/core';
 import 'rxjs/add/operator/toPromise';
 import {Marque} from "./marque";
 import {Headers, Http, RequestOptions} from '@angular/http';
+import {Fournisseur} from "../fournisseurs/fournisseur";
 
 @Injectable()
 export class MarqueService {
   private marquesURL = `http://localhost:8000/api/marques`;
+  private fournisseursURL = `http://localhost:8000/api/fournisseurs`;
   private headers = new Headers({'Accept': 'application/json'  });
-  
+
 
   constructor(private http: Http) {
   };
 
-  /**     let options = new Headers({'Accept': 'application/ld+json'  });
+
+  /**
    * Return all marques
    * @returns {Promise<Marque[]>}
    */
   getMarques(): Promise<Marque[]> {
     let options = new RequestOptions({ headers: this.headers});
+    this.getFournisseurs();
       return this.http.get(this.marquesURL, options)
       .toPromise()
       .then(response => {
@@ -26,6 +30,19 @@ export class MarqueService {
       .catch(this.handleError);
   }
 
+  /**
+   * Return all marques
+   * @returns {Promise<Fournisseur[]>}
+   */
+  getFournisseurs(): Promise<Fournisseur[]> {
+    let options = new RequestOptions({ headers: this.headers});
+      return this.http.get(this.fournisseursURL, options)
+      .toPromise()
+      .then(response => {
+        return response.json() as Fournisseur[];
+      })
+      .catch(this.handleError);
+  }
 
   /**
    * Returns marque based on id

@@ -36,9 +36,19 @@ export class UserUpdateComponent implements OnInit {
     this.userUpdateForm = this.formBuilder.group({
       prenom: [this.user.prenom, Validators.required],
       nom: [this.user.nom, Validators.required],
+      civilite: [this.user.civilite, Validators.required],
       email: [this.user.email, [Validators.required, Validators.pattern(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)]],
       idClient: [this.user.idClient],
-      dateConnexion: [this.user.dateConnexion, Validators.required]
+      dateConnexion: [this.user.dateConnexion, Validators.required],
+      dateInscription: [this.user.dateInscription, Validators.required],
+      newsletterFidelite: [this.user.newsletterFidelite, Validators.required],
+      newsletterAvoir: [this.user.newsletterAvoir, Validators.required],
+      envoieFidelite: [this.user.envoieFidelite, Validators.required],
+      actifClient: [this.user.actifClient, Validators.required],
+      envoieEnquete: [this.user.envoieEnquete, Validators.required],
+      nbCommande: [this.user.nbCommande, Validators.required],
+      envoieRappelWelcome: [this.user.envoieRappelWelcome, Validators.required],
+      envoieRappelTreflesX2: [this.user.envoieRappelTreflesX2, Validators.required]
     });
   }
 

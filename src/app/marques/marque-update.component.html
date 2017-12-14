@@ -5,27 +5,43 @@
         <h4>Modifications de {{ marque.nomMarque}} ID:{{ marque.idMarque }} </h4>
       </div>
     </div>
+
     <form [formGroup]="marqueUpdateForm"
-    (ngSubmit)="update()"
-    novalidate>
-    <div class="panel-body">
+        (ngSubmit)="update()"novalidate>
+
+      <div>
+        <label> Logo </label>
+        <img src="https://dev.onatera.com/imagesUp/marques/marques_{{marque.idMarque}}.jpg"
+            alt="logo {{ marque.nomMarque}}/{{ marque.idMarque }}" class="imagemarque" style="width: 300px; height: 200px;">
+        </div>
+
+      <div class="panel-body">
+
+        <div>
+          <label>Modifier le logo ? </label>
+          <image-upload
+            url= "http://localhost:8000/api/upload/marques/{{marque.idMarque}}"
+            [headers]="{'Accept': 'application/json'}"
+            [extensions]="['jpg','png']" >
+          </image-upload>
+        </div>
+
+        <div class="form-group">
+          <label for="idMarque">ID</label>
+          <input readonly id="idMarque"
+          class="form-control"
+          formControlName="idMarque">
+        </div>
 
       <div class="form-group">
-        <label for="idMarque">ID</label>
-        <input readonly id="idMarque"
-        class="form-control"
-        formControlName="idMarque">
-      </div>
-
-      <div class="form-group">
-        <label for="nomMarque">Nom</label>
+        <label for="nomMarque">Nom de la marque</label>
         <input id="nomMarque"
         class="form-control"
         formControlName="nomMarque">
       </div>
 
       <div>
-        <label for="desMarque">Description</label>
+        <label for="desMarque">Description de la marque</label>
         <text-editor id="desMarque" formControlName="desMarque" [(ngModel)]="marque.desMarque"> </text-editor>
       </div>
 
@@ -38,31 +54,33 @@
       </div>
 
       <div>
-        <label for="premPage">PremPage </label>
-        <input id="premPage"
-        type="checkbox"
-        value="marque.premPage"
-        formControlName="premPage">
+        <label for="premPage">PremPage
+          <input class="control control--checkbox" id="premPage" class = "styled"
+          type="checkbox"
+          value="marque.premPage"
+          formControlName="premPage">
+        </label>
       </div>
 
       <div>
-        <label for="afficher">afficher </label>
-        <input id="afficher"
-        type="checkbox"
-        value="marque.afficher"
-        formControlName="afficher">
+        <label for="afficher">Afficher ?
+          <input id="afficher"
+          type="checkbox"
+          value="marque.afficher"
+          formControlName="afficher">
+        </label>
       </div>
 
       <div>
-        <label for="afficherIndex">afficherIndex </label>
-        <input id="afficherIndex"
-        type="checkbox"
-        value="marque.afficherIndex"
-        formControlName="afficherIndex">
+        <label for="afficherIndex">Afficher l'Index ?</label>
+          <input id="afficherIndex"
+          type="checkbox"
+          value="marque.afficherIndex"
+          formControlName="afficherIndex">
       </div>
 
       <div>
-        <label for="afficherPromotion">afficher </label>
+        <label for="afficherPromotion">Afficher Promotion ?  </label>
         <input id="afficherPromotion"
         type="checkbox"
         value="marque.afficherPromotion"
@@ -70,7 +88,7 @@
       </div>
 
       <div>
-        <label for="desCourt">desCourt</label>
+        <label for="desCourt">Description Court</label>
         <text-editor id="desCourt" formControlName="desCourt" [(ngModel)]="marque.desCourt"> </text-editor>
       </div>
 
@@ -93,12 +111,7 @@
       </div>
 
       <div class="form-group">
-        <label for="couleurMarque">Couleur</label>
-        <input [(colorPicker)]="color" [style.background]="color" [value]="color"/>
-      </div>
-
-      <div class="form-group">
-        <label for="CondComm">CondComm</label>
+        <label for="CondComm">Conditions Commerciales</label>
         <textarea id="condComm"
         rows="9"
         class="form-control"
@@ -122,9 +135,27 @@
       </div>
 
       <div>
-        <label for="desPromos">desPromos</label>
+        <label for="desPromos">Description de la promotion</label>
         <text-editor id="desPromos" formControlName="desPromos" [(ngModel)]="marque.desPromos"> </text-editor>
       </div>
+
+
+      <div class="form-group">
+        <label for="ridFournisseur">ID du fournisseur</label>
+        <input id="ridFournisseur"
+        type="number" min="0" max="999"
+        class="form-control"
+        formControlName="ridFournisseur">
+      </div>
+
+<!--
+      <div class="form-group">
+        <label for="ridFournisseur">Fournisseur</label>
+        <select [(ngModel)]="fournisseur.nomFournisseur" formControlName="ridFournisseur">
+          <option *ngFor="let fournisseur of fournisseurs" [ngValue]="fournisseur.nomFournisseur">{{fournisseur.nomFournisseur}}</option>
+        </select>
+      </div>
+      !-->
 
       <div>
         <label for="triProdVendu">triProdVendu </label>
@@ -135,7 +166,7 @@
       </div>
 
       <div>
-        <label for="triProdIndispo">triProdVendu </label>
+        <label for="triProdIndispo">triProdIndispo </label>
         <input id="triProdIndispo"
         type="checkbox"
         value="marque.triProdIndispo"
@@ -150,19 +181,42 @@
         formControlName="phraseHaut">
       </div>
 
-      <label for="ts">Date TS</label>
-      <input
-        [(ngModel)]='marque.ts'
-        formControlName="ts"
-        ngui-datetime-picker
-        [date-format]="date4TimezoneFormat"/>
+        <label for="ts">Date TS</label>
+        <input
+          [(ngModel)]='marque.ts'
+          formControlName="ts"
+          ngui-datetime-picker
+          [date-format]="date4TimezoneFormat"/>
+
+        <div class="form-group">
+          <label for="margin">Margin</label>
+          <input id="margin"
+          type="number" min="-10000" max="100000" step="1"
+          class="form-control"
+          formControlName="margin">
+        </div>
+
+        <div>
+          <label for="ownBrand"> OwnBrand ? </label>
+          <input id="ownBrand"
+          type="checkbox"
+          formControlName="ownBrand">
+        </div>
 
 
-      <label for="prixMin"> File Upload </label>
-      <file-uploader formControlName="prixMin"
-        [maxSizeInKb]="500" [allowMultiple]="false" [fileType]="'application/*'"
-        (onSelection)="fileuploaderFileChange($event)"  [required]="false" ngDefaultControl >
-      </file-uploader><br/>
+        <div class="form-group">
+          <label for="nbRefs">Nombre de Références</label>
+          <input id="nbRefs"
+          type="number" min="-10000" max="100000" step="1"
+          class="form-control"
+          formControlName="nbRefs">
+        </div>
+
+        <div class="form-group">
+          <label for="couleurMarque">Couleur Marque</label>
+          <input type="color" value="#fad345" name="couleur" formControlName="couleurMarque"
+            >
+        </div>
 
     </div>
     <div class="form-group">

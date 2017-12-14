@@ -1,4 +1,4 @@
-<div class="col-md-offset-3 col-md-6" *ngIf="user">
+<div class=" col-md-12" *ngIf="user">
   <div class="panel panel-default">
     <div class="row" style="margin: 0">
       <div class="col-md-12 text-center form-header">
@@ -15,6 +15,13 @@
           <input readonly id="idClient"
                  class="form-control"
                  formControlName="idClient">
+        </div>
+
+        <div class="form-group">
+          <label for="civilite">Civilité :</label>
+          <input type="radio" formControlName="civilite" name="civilite" value="M.">M.
+          <input type="radio" formControlName="civilite" name="civilite" value="Mlle">Mlle
+          <input type="radio" formControlName="civilite" name="civilite" value="Mme">Mme
         </div>
 
         <div class="form-group">
@@ -45,6 +52,77 @@
           formControlName="dateConnexion"
           ngui-datetime-picker
           [date-format]="date4TimezoneFormat"/>
+
+          <label for="dateInscription">Date d'inscription</label>
+          <input
+            [(ngModel)]='user.dateInscription'
+            formControlName="dateInscription"
+            ngui-datetime-picker
+            [date-format]="date4TimezoneFormat"/>
+
+            <div>
+              <label for="newsletterFidelite">newsletterFidelite </label>
+              <input id="newsletterFidelite"
+              type="checkbox"
+              value="user.newsletterFidelite"
+              formControlName="newsletterFidelite">
+            </div>
+
+            <div>
+              <label for="newsletterAvoir">newsletterAvoir </label>
+              <input id="newsletterAvoir"
+              type="checkbox"
+              value="user.newsletterAvoir"
+              formControlName="newsletterAvoir">
+            </div>
+
+            <div>
+              <label for="envoieFidelite">envoieFidelite </label>
+              <input id="envoieFidelite"
+              type="checkbox"
+              value="user.envoieFidelite"
+              formControlName="envoieFidelite">
+            </div>
+
+            <div>
+              <label for="actifClient">actifClient </label>
+              <input id="actifClient"
+              type="checkbox"
+              value="user.actifClient"
+              formControlName="actifClient">
+            </div>
+
+            <div>
+              <label for="envoieEnquete">envoieEnquete </label>
+              <input id="envoieEnquete"
+              type="checkbox"
+              value="user.envoieEnquete"
+              formControlName="envoieEnquete">
+            </div>
+
+            <div class="form-group">
+              <label for="nbCommande">Nombre de commandes</label>
+              <input id="nbCommande"
+                     type="number" min="0" max="999"
+                     class="form-control"
+                     formControlName="nbCommande">
+            </div>
+
+            <div>
+              <label for="envoieRappelWelcome">envoieRappelWelcome </label>
+              <input id="envoieRappelWelcome"
+              type="checkbox"
+              value="user.envoieRappelWelcome"
+              formControlName="envoieRappelWelcome">
+            </div>
+
+            <div>
+              <label for="envoieRappelTreflesX2">envoieRappelTreflesX2 </label>
+              <input id="envoieRappelTreflesX2"
+              type="checkbox"
+              value="user.envoieRappelTreflesX2"
+              formControlName="envoieRappelTreflesX2">
+            </div>
 
         <div class="form-group">
           <button class="btn btn-success"

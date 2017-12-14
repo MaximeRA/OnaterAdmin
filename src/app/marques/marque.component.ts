@@ -3,6 +3,7 @@ import {Component, OnInit} from '@angular/core';
 import {Marque} from './marque';
 import {MarqueService} from './marque.service';
 import {Router} from '@angular/router';
+import {Fournisseur} from '../fournisseurs/fournisseur';
 
 @Component({
   selector: 'my-marques ',
@@ -13,6 +14,7 @@ import {Router} from '@angular/router';
 
 export class MarqueComponent implements OnInit {
   marques: Marque[];
+  fournisseurs: Fournisseur[];
 
   constructor(private router: Router,
               private marqueService: MarqueService) {
@@ -26,6 +28,13 @@ export class MarqueComponent implements OnInit {
       .then(marques => {
         this.marques = marques;
       });
+  }
+
+  getFournisseurs(): void {
+    this.marqueService.getFournisseurs()
+    .then(fournisseurs => {
+      this.fournisseurs = fournisseurs;
+    })
   }
 
   ngOnInit(): void {

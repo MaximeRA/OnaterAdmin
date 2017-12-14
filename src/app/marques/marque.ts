@@ -21,4 +21,7 @@ export class Marque {
   phraseHaut: string;
   prixMin: string;
   ts: string;
+  margin: number;
+  ownBrand: boolean;
+  nbRefs: number;
 }

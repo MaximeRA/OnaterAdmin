@@ -12,7 +12,7 @@ export class User {
   envoieFidelite: boolean;
   actifClient: boolean;
   envoieEnquete: boolean;
-  nbCommande:string;
+  nbCommande:number;
   envoieRappelWelcome: boolean;
   envoieRappelTreflesX2: boolean;
 }

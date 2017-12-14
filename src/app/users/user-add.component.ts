@@ -33,13 +33,13 @@ export class UserAddComponent {
       dateInscription: ['', Validators.required],
       dateConnexion: ['', Validators.required],
       newsletterAvoir: [false, Validators.required],
-      newsletterFidelite: [false, Validators.required],
-      envoieFidelite: [false, Validators.required],
-      actifClient: [false, Validators.required],
-      envoieEnquete: [false, Validators.required],
+      newsletterFidelite: [false],
+      envoieFidelite: [false],
+      actifClient: [false],
+      envoieEnquete: [false],
       nbCommande: [0, Validators.required],
-      envoieRappelWelcome: [false, Validators.required],
-      envoieRappelTreflesX2: [false, Validators.required]
+      envoieRappelWelcome: [false] ,
+      envoieRappelTreflesX2: [false]
     });
   }
 

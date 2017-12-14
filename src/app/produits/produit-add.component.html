@@ -1,0 +1,315 @@
+<div class="col-md-12" *ngIf="produit">
+  <div class="panel panel-default">
+    <div class="row" style="margin: 0">
+      <div class="col-md-12 text-center form-header">
+        <h4>Création d'un Produit </h4>
+      </div>
+    </div>
+    <div class="panel-body">
+      <form [formGroup]="produitAddForm"
+      (ngSubmit)="add()"
+      novalidate>
+
+      <div class="form-group">
+        <label for="nom">Nom</label>
+        <input id="nom"
+        class="form-control"
+        formControlName="nom">
+      </div>
+
+      <div class="form-group">
+        <label for="ref">Ref</label>
+        <input id="ref"
+        class="form-control"
+        formControlName="ref">
+      </div>
+
+      <div class="form-group">
+        <label for="refFournisseur">refFournisseur</label>
+        <input id="refFournisseur"
+        class="form-control"
+        formControlName="refFournisseur">
+      </div>
+
+      <div class="form-group">
+        <label for="typeProd">typeProd</label>
+        <input id="typeProd"
+        class="form-control"
+        formControlName="typeProd">
+      </div>
+
+      <div class="form-group">
+        <label for="ean">ean</label>
+        <input id="ean"
+        class="form-control"
+        formControlName="ean">
+      </div>
+
+      <div class="form-group">
+        <label for="ean2">ean2</label>
+        <input id="ean2"
+        class="form-control"
+        formControlName="ean2">
+      </div>
+
+
+      <div class="form-group">
+        <label for="nomAmazon">nomAmazon</label>
+        <input id="nomAmazon"
+        class="form-control"
+        formControlName="nomAmazon">
+      </div>
+
+      <div class="form-group">
+        <label for="nomIndex">nomIndex</label>
+        <input id="nomIndex"
+        class="form-control"
+        formControlName="nomIndex">
+      </div>
+
+      <div class="form-group">
+        <label for="soustitre">sous-titre</label>
+        <input id="soustitre"
+        class="form-control"
+        formControlName="soustitre">
+      </div>
+
+      <div>
+        <label for="des">description du Produit</label>
+        <text-editor id="des" formControlName="des" [(ngModel)]="produit.des"> </text-editor>
+      </div>
+
+      <div>
+        <label for="ingredient">Ingredients</label>
+        <text-editor id="ingredient" formControlName="ingredient" [(ngModel)]="produit.ingredient"> </text-editor>
+      </div>
+
+      <div class="form-group">
+        <label for="img4">Image 4</label>
+        <input id="img4"
+        class="form-control"
+        formControlName="img4">
+      </div>
+
+      <div>
+        <label for="afficher">Afficher ? </label>
+        <input id="afficher"
+        type="checkbox"
+        formControlName="afficher">
+      </div>
+
+      <div>
+        <label for="afficherAmazon">Afficher Amazon ? </label>
+        <input id="afficherAmazon"
+        type="checkbox"
+        formControlName="afficherAmazon">
+      </div>
+
+      <div>
+        <label for="afficherGoogle">Afficher Google ? </label>
+        <input id="afficherGoogle"
+        type="checkbox"
+        formControlName="afficherGoogle">
+      </div>
+
+
+      <div>
+        <label for="presentation">Présentation du Produit</label>
+        <text-editor id="presentation" formControlName="presentation" [(ngModel)]="produit.presentation"> </text-editor>
+      </div>
+
+      <div>
+        <label for="modedemploi">Mode d'emploi du Produit</label>
+        <text-editor id="modedemploi" formControlName="modedemploi" [(ngModel)]="produit.modedemploi"> </text-editor>
+      </div>
+
+      <div>
+        <label for="important">Important</label>
+        <text-editor id="important" formControlName="important" [(ngModel)]="produit.important"> </text-editor>
+      </div>
+
+      <div>
+        <label for="lesplus">Les Plus</label>
+        <text-editor id="lesplus" formControlName="lesplus" [(ngModel)]="produit.lesplus"> </text-editor>
+      </div>
+
+      <div>
+        <label for="lesmoins">Les Moins</label>
+        <text-editor id="lesmoins" formControlName="lesmoins" [(ngModel)]="produit.lesmoins"> </text-editor>
+      </div>
+
+      <div class="form-group">
+        <label for="ridMarque">ID de la marque</label>
+        <input id="ridMarque"
+        type="number" min="0" max="999"
+        class="form-control"
+        formControlName="ridMarque">
+      </div>
+
+      <div class="form-group">
+        <label for="ridGamme">ID de la gamme</label>
+        <input id="ridGamme"
+        type="number" min="0" max="999"
+        class="form-control"
+        formControlName="ridGamme">
+      </div>
+
+      <div class="form-group">
+        <label for="ridCat">RidCat</label>
+        <input id="ridCat"
+        type="number" min="0" max="999"
+        class="form-control"
+        formControlName="ridCat">
+      </div>
+
+      <div class="form-group">
+        <label for="ridCat2">RidCat2</label>
+        <input id="ridCat2"
+        type="number" min="0" max="999"
+        class="form-control"
+        formControlName="ridCat2">
+      </div>
+
+      <div class="form-group">
+        <label for="ridCat3">RidCat3</label>
+        <input id="ridCat3"
+        type="number" min="0" max="999"
+        class="form-control"
+        formControlName="ridCat3">
+      </div>
+
+      <div class="form-group">
+        <label for="ridCat4 ">RidCat4</label>
+        <input id="ridCat4"
+        type="number" min="0" max="999"
+        class="form-control"
+        formControlName="ridCat4">
+      </div>
+
+      <div class="form-group">
+        <label for="ridCatAmazone">ridCatAmazone</label>
+        <input id="ridCatAmazone"
+        type="number" min="0" max="999"
+        class="form-control"
+        formControlName="ridCatAmazone">
+      </div>
+
+      <div class="form-group">
+        <label for="ridCat2Amazone">ridCat2Amazone</label>
+        <input id="ridCat2Amazone"
+        type="number" min="0" max="999"
+        class="form-control"
+        formControlName="ridCat2Amazone">
+      </div>
+
+      <div class="form-group">
+        <label for="ridCatLeguildet">ridCatLeguilde</label>
+        <input id="ridCatLeguilde"
+        type="number" min="0" max="999"
+        class="form-control"
+        formControlName="ridCatLeguilde">
+      </div>
+
+      <div class="form-group">
+        <label for="ridCatGoogle">ridCatGoogle</label>
+        <input id="ridCatGoogle"
+        type="number" min="0" max="999"
+        class="form-control"
+        formControlName="ridCatGoogle">
+      </div>
+
+
+      <div class="form-group">
+        <label for="lienforum">Lien du forum</label>
+        <input id="lienforum"
+        class="form-control"
+        formControlName="lienforum">
+      </div>
+
+      <div class="form-group">
+        <label for="prodAsso">prodAsso</label>
+        <input id="prodAsso"
+        class="form-control"
+        formControlName="prodAsso">
+      </div>
+
+      <div class="form-group">
+        <label for="analyse">Analyses</label>
+        <input id="analyse"
+        class="form-control"
+        formControlName="analyse">
+      </div>
+
+      <div class="form-group">
+        <label for="precautions">Précautions</label>
+        <input id="precautions"
+        class="form-control"
+        formControlName="precautions">
+      </div>
+
+      <div class="form-group">
+        <label for="analyseNomRnj">analyseNomRnj</label>
+        <input id="analyseNomRnj"
+        class="form-control"
+        formControlName="analyseNomRnj">
+      </div>
+
+      <div class="form-group">
+        <label for="analyseNomUnite">analyseNomUnite</label>
+        <input id="analyseNomUnite"
+        class="form-control"
+        formControlName="analyseNomUnite">
+      </div>
+
+      <div>
+        <label for="premPage">PremPage </label>
+        <input id="premPage"
+        type="checkbox"
+        formControlName="premPage">
+      </div>
+
+      <div>
+        <label for="promo">Promo ?</label>
+        <input id="promo"
+        type="checkbox"
+        formControlName="promo">
+      </div>
+
+      <div>
+        <label for="semaine">Semaine ?</label>
+        <input id="semaine"
+        type="checkbox"
+        formControlName="semaine">
+      </div>
+
+      <div>
+        <label for="new"> New ? </label>
+        <input id="new"
+        type="checkbox"
+        formControlName="new">
+      </div>
+
+      <div>
+        <label for="img1"> Image 1 </label>
+        <fancy-image-uploader [options]="options"
+          (onUpload)="onUpload($event)"
+          formControlName= "img1"></fancy-image-uploader>
+      </div>
+
+
+
+
+
+
+
+
+
+      <div>
+        <button class="btn btn-success"
+        [disabled]="!produitAddForm.valid">Ajouter Produit</button>
+        <button type="button" class="btn btn-default" (click)="goBack()">Annuler</button>
+      </div>
+    </form>
+  </div>
+</div>
+</div>

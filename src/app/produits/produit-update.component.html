@@ -1,0 +1,66 @@
+<div class=" col-md-12" *ngIf="produit">
+  <div class="panel panel-default">
+    <div class="row" style="margin: 0">
+      <div class="col-md-12 text-center form-header">
+        <h4>Modifications de {{ produit.nom }}</h4>
+      </div>
+    </div>
+    <div class="panel-body">
+      <form [formGroup]="produitUpdateForm"
+            (ngSubmit)="update()"
+            novalidate>
+            <div class="panel-body">
+
+            <div class="form-group">
+              <label for="idProd">ID</label>
+              <input readonly id="idProd"
+                     class="form-control"
+                     formControlName="idProd">
+            </div>
+
+            <div class="form-group">
+              <label for="nom">Nom</label>
+              <input id="nom"
+                     class="form-control"
+                     formControlName="nom">
+            </div>
+
+            <div class="form-group">
+              <label for="soustitre">Soustitre</label>
+              <input id="soustitre"
+                     class="form-control"
+                     formControlName="soustitre">
+            </div>
+
+            <div class="form-group">
+              <label for="ridCatGoogle">ridCatGoogle</label>
+              <input id="ridCatGoogle"
+              type="number" min="-10000" max="100000" step="1"
+              class="form-control"
+              formControlName="ridCatGoogle">
+            </div>
+
+            <div>
+              <label for="img1"> Image 1 </label>
+              <fancy-image-uploader [options]="options"
+                (onUpload)="onUpload($event)"
+                formControlName= "img1"></fancy-image-uploader>
+            </div>
+
+
+
+
+
+
+          </div>
+            <div class="form-group">
+              <button class="btn btn-success"
+                      type="submit"
+                      [disabled]="!produitUpdateForm.valid">Update User
+              </button>
+              <button type="button" class="btn btn-default" (click)="goBack()">Cancel</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
